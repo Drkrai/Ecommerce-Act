@@ -1,0 +1,106 @@
+CRITICAL - 2023-09-28 00:44:54 --> Undefined variable $pro
+in APPPATH\Views\admin\modal.php on line 15.
+ 1 APPPATH\Views\admin\modal.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pro', 'C:\\laragon\\www\\ecommerce\\app\\Views\\admin\\modal.php', 15)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\ecommerce\\app\\Views\\admin\\modal.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(467): CodeIgniter\View\View->render('admin/modal', null, true)
+ 5 APPPATH\Views\admin.php(5): CodeIgniter\View\View->include('admin/modal')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\ecommerce\\app\\Views\\admin.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('admin', [], true)
+ 9 APPPATH\Controllers\AdminController.php(20): view('admin', [...])
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->productList()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\ecommerce\\public\\index.php')
+ERROR - 2023-09-28 03:16:49 --> mysqli_sql_exception: Table 'ecommerce.users' doesn't exist in C:\laragon\www\ecommerce\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\ecommerce\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\ecommerce\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\ecommerce\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\ecommerce\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\ecommerce\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\ecommerce\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('Justine', 'email', Array, NULL, 'username')
+#6 C:\laragon\www\ecommerce\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'Justine', Array, Array)
+#7 C:\laragon\www\ecommerce\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\ecommerce\app\Controllers\UserController.php(34): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\ecommerce\system\CodeIgniter.php(919): App\Controllers\UserController->register()
+#10 C:\laragon\www\ecommerce\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\laragon\www\ecommerce\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\ecommerce\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\ecommerce\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2023-09-28 03:16:49 --> Table 'ecommerce.users' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('Justine', 'email', [...], null, 'username')
+ 4 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'Justine', [...], [...])
+ 5 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 6 APPPATH\Controllers\UserController.php(34): CodeIgniter\Controller->validate([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->register()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\ecommerce\\public\\index.php')
+ERROR - 2023-09-28 03:17:47 --> mysqli_sql_exception: Table 'ecommerce.username' doesn't exist in C:\laragon\www\ecommerce\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\ecommerce\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\ecommerce\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\ecommerce\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\ecommerce\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\ecommerce\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\ecommerce\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('Justine', 'email', Array, NULL, 'username')
+#6 C:\laragon\www\ecommerce\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'Justine', Array, Array)
+#7 C:\laragon\www\ecommerce\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\ecommerce\app\Controllers\UserController.php(34): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\ecommerce\system\CodeIgniter.php(919): App\Controllers\UserController->register()
+#10 C:\laragon\www\ecommerce\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\laragon\www\ecommerce\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\ecommerce\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\ecommerce\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2023-09-28 03:17:47 --> Table 'ecommerce.username' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `username`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('Justine', 'email', [...], null, 'username')
+ 4 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'Justine', [...], [...])
+ 5 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 6 APPPATH\Controllers\UserController.php(34): CodeIgniter\Controller->validate([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->register()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\ecommerce\\public\\index.php')
+CRITICAL - 2023-09-28 14:07:42 --> Undefined variable $name
+in APPPATH\Controllers\AdminController.php on line 40.
+ 1 APPPATH\Controllers\AdminController.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $name', 'C:\\laragon\\www\\ecommerce\\app\\Controllers\\AdminController.php', 40)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->insertProduct()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\ecommerce\\public\\index.php')
+CRITICAL - 2023-09-28 14:08:55 --> Undefined variable $name
+in APPPATH\Controllers\AdminController.php on line 40.
+ 1 APPPATH\Controllers\AdminController.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $name', 'C:\\laragon\\www\\ecommerce\\app\\Controllers\\AdminController.php', 40)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->insertProduct()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\ecommerce\\public\\index.php')
+CRITICAL - 2023-09-28 14:11:24 --> Undefined variable $name
+in APPPATH\Controllers\AdminController.php on line 40.
+ 1 APPPATH\Controllers\AdminController.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $name', 'C:\\laragon\\www\\ecommerce\\app\\Controllers\\AdminController.php', 40)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->insertProduct()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\ecommerce\\public\\index.php')
