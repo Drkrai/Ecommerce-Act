@@ -5,8 +5,8 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-
- $routes->get('/loginView', 'UserController::index');
+$routes->get('/loginView', 'UserController::index');
+ $routes->get('/', 'UserController::index');
 $routes->get('/adminView', 'AdminController::adminView',['filter'=>'authGuard']);
 $routes->post('/save', 'AdminController::insertProduct');
 $routes->get('/addProduct', 'AdminController::showInsertProduct');

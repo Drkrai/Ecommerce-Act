@@ -14,25 +14,29 @@
                 <div class="col-lg-12">
                     <div class="men-item-carousel">
                         <div class="owl-men-item owl-carousel">
+                        <?php foreach($product as $prod):?>
                             <div class="item">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="productView"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="productView"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="productView"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="productView/<?=$prod['id']?>"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="productView/<?=$prod['id']?>"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="productView/<?=$prod['id']?>"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/images/men-01.jpg" alt="">
+                                    
+                                    <img src="/public/<?=$prod['image']?>" alt="">
                                 </div>
+                                
                                 <div class="down-content">
-                                    <?php foreach($product as $prod):?>
+                                
                                     <h4><?=$prod['name']?></h4>
                                     <span>$<?=$prod['price']?></span>
-                                    <?php endforeach;?>
+                                    
                                 </div>
+                                
                             </div>
-                            
+                            <?php endforeach;?>
                         </div>
                     </div>
                 </div>
