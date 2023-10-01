@@ -50,12 +50,12 @@ class AdminController extends BaseController
         }else{
         $this->product->save($data);
         }
-        return redirect()->to('/');
+        return redirect()->to('/adminView');
         
     }
     public function delete($id){
         $this->product->delete($id);
-        return redirect()->to('/');
+        return redirect()->to('/adminView');
     }
 
     public function register(){
