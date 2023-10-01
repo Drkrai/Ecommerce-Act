@@ -13,11 +13,11 @@ class AdminController extends BaseController
         $this->category = new \App\Models\CategoryModel();
     }
 
-    public function productList(){
+    public function adminView(){
         $data=['product'=>$this->product->findAll(),
         'category'=>$this->category->findAll(),
     ];
-        return view('admin',$data);
+        return view('adminView',$data);
     }
 
     public function showInsertProduct(){

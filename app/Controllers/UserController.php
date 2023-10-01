@@ -15,7 +15,7 @@ class UserController extends BaseController
         $this->login = new \App\Models\LoginModel();
     }
 
-    public function index()
+    public function userView()
     {
         $data['product']=$this->product->findAll();
         return view('user',$data);
@@ -42,14 +42,14 @@ class UserController extends BaseController
                 'password'=>password_hash($this->request->getVar('password'),PASSWORD_DEFAULT)
             ];
             $this->login->save($data);
-            return redirect()->to('/signup');
+            return redirect()->to('/loginView');
         }
         else{
             $data['validation']=$this->validator;
             echo view('signup',$data);
         }
     }
-    public function login(){
+    public function index(){
         helper(['form']);
         echo view('loginView');
     }
@@ -59,24 +59,27 @@ class UserController extends BaseController
         $password=$this->request->getVar('password');
         $data=$this->login->where('username',$username)->first();
         if($data){
-            $pass=$data['password'];
-            $authenticatePassword=password_verify($password,$pass);
-        
+            $pass = $data['password'];
+            $authenticatePassword = password_verify($password, $pass);
+            $debugMsg = "Input Password: " . $password . "<br>"
+            . "Hashed Password from DB: " . $pass . "<br>"
+            . "Is Password Verified: " . ($authenticatePassword ? 'true' : 'false') . "<br>";
+ $session->setFlashdata('msg', $debugMsg);
         if($authenticatePassword){
             $ses_data=[
                 'id'=>$data['id'],
                 'username'=>$data['username'],
-                'isLoggedin'=>true,
+                'isLoggedIn'=>true,
             ];
             $session->set($ses_data);
-            return redirect()->to('/profile');
+            return redirect()->to('/user');
         }else{
             $session->setFlashdata('msg', 'Password is incorrect');
-            return redirect()->to('/signup');
+            return redirect()->to('/loginView');
         }
     }else{
             $session->setFlashdata('msg', 'Email does not exist');
-            return redirect()->to('/signup');
+            return redirect()->to('/loginView');
         }
     }
 
