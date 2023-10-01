@@ -9,6 +9,7 @@ $routes->get('/loginView', 'UserController::index');
  $routes->get('/', 'UserController::index');
 $routes->get('/adminView', 'AdminController::adminView',['filter'=>'adminGuard']);
 $routes->post('/save', 'AdminController::insertProduct');
+$routes->post('/saveCategory', 'AdminController::addCategory');
 $routes->get('/addProduct', 'AdminController::showInsertProduct');
 $routes->get('/user', 'UserController::userView',['filter'=>'authGuard']);
 $routes->get('/productView/(:any)', 'UserController::viewProduct/$1');

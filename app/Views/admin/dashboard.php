@@ -17,6 +17,17 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">Add Category</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addCateg" >Insert Product</button>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">

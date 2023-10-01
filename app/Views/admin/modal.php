@@ -46,6 +46,34 @@
         </div>
     </div>    
 </div>
+<div class="modal" id="addCateg">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Create Playlist</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+          <form action="/saveCategory" method="post">
+            <!-- <p id="modalData"></p> -->
+            <input type="text" id="" name="category">
+            <button type="Submit" class="btn btn-success" data-bs-dismiss="modal">Submit</button>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
 <!-- Add some CSS to style the modal -->
 <style>

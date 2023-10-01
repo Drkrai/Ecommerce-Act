@@ -53,6 +53,11 @@ class AdminController extends BaseController
         return redirect()->to('/adminView');
         
     }
+    public function addCategory(){
+        $data=['category'=>$this->request->getVar('category')];
+        $this->category->save($data);
+        return redirect()->to('/adminView');
+    }
     public function delete($id){
         $this->product->delete($id);
         return redirect()->to('/adminView');
