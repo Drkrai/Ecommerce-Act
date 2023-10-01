@@ -29,6 +29,7 @@ class AuthGuard implements FilterInterface
      {
         return redirect()->to('/loginView');
     }
+    
     }
 
     /**

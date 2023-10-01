@@ -20,8 +20,12 @@ class UserController extends BaseController
         $data['product']=$this->product->findAll();
         return view('user',$data);
     }
-    public function viewProduct(){
-        return view('productView');
+    public function viewProduct($id){
+        $data=[
+            'product' => $this->product->findAll(),
+            'pro'=>$this->product->where('id',$id)->first(),
+        ];
+        return view('productView',$data);
     }
     public function register(){
         helper(['form']);
@@ -61,10 +65,6 @@ class UserController extends BaseController
         if($data){
             $pass = $data['password'];
             $authenticatePassword = password_verify($password, $pass);
-            $debugMsg = "Input Password: " . $password . "<br>"
-            . "Hashed Password from DB: " . $pass . "<br>"
-            . "Is Password Verified: " . ($authenticatePassword ? 'true' : 'false') . "<br>";
- $session->setFlashdata('msg', $debugMsg);
         if($authenticatePassword){
             $ses_data=[
                 'id'=>$data['id'],

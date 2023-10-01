@@ -8,9 +8,11 @@ class AdminController extends BaseController
 {
     private $product;
     private $category;
+    private $admin;
     function __construct(){
         $this->product = new \App\Models\ProductModel();
         $this->category = new \App\Models\CategoryModel();
+        $this->admin = new \App\Models\AdminLogin();
     }
 
     public function adminView(){
@@ -54,6 +56,66 @@ class AdminController extends BaseController
     public function delete($id){
         $this->product->delete($id);
         return redirect()->to('/');
+    }
+
+    public function register(){
+        helper(['form']);
+        $data=[];
+        echo view('adminSignin',$data);
+    }
+    public function registerAdmin(){
+        helper(['form']);
+        $data=[];
+        $rules=[
+            'username'=>'required|min_length[4]|max_length[100]valid_email',
+            'email'=> 'required|min_length[4]|max_length[100]|valid_email|is_unique[admin.email]',
+            'password'=>'required|min_length[4]|max_length[50]',
+            'confirmpassword'=>'matches[password]'
+        ];
+        if($this->validate($rules)){
+            $data=[
+                'username'=>$this->request->getVar('username'),
+                'email'    => $this->request->getVar('email'),
+                'password'=>password_hash($this->request->getVar('password'),PASSWORD_DEFAULT)
+            ];
+            $this->admin->save($data);
+            return redirect()->to('/adminLogin');
+        }
+        else{
+            $data['validation']=$this->validator;
+            echo view('adminSignin',$data);
+        }
+    }
+    public function Adminlogin(){
+        helper(['form']);
+        echo view('adminLogin');
+    }
+    public function loginAdmin(){
+        $session=session();
+        $username=$this->request->getVar('username');
+        $email=$this->request->getVar('email');
+        $password=$this->request->getVar('password');
+        $data=$this->admin->where('email',$email)->first();
+        if($data){
+            $pass = $data['password'];
+            $authenticatePassword = password_verify($password, $pass);
+        if($authenticatePassword){
+            $ses_data=[
+                'id'=>$data['id'],
+                'username'=>$data['username'],
+                'email'=>$data['email'],
+                'isAdmin'=>true,
+            ];
+            $session->set($ses_data);
+            return redirect()->to('/adminView');
+        }else{
+            $session->setFlashdata('msg', 'Password is incorrect');
+            return redirect()->to('/adminLogin');
+        }
+    }else{
+            $session->setFlashdata('msg', 'Email does not exist');
+            return redirect()->to('/adminLogin');
+        }
     }
 
 
